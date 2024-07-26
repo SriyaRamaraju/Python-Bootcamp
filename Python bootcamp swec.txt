@@ -1,0 +1,1426 @@
+DAY - 1
+
+//sum of a number:
+n=int(input())
+s=0
+while n>0:
+    k=n%10
+    s+=k
+    n=n//10
+print(s)  
+o/p-  
+326
+11
+
+
+//product of a num  :
+n=int(input())
+prod=1
+while n>0:
+    k=n%10
+    prod*=k
+    n=n/10
+print(prod)  
+o/p-
+512
+10 
+
+//sum of digits in a string:
+s='a1b2c3'
+sum=0
+for i in range(0,len(s)):     #for strings we use range
+    if s[i].isdigit():      
+        sum+=int(s[i])         #to convert string to int
+print(sum)  
+o/p-
+6 
+
+//count the number of digits in a string:
+s=input()
+count=0
+for i in range(0,len(s)):
+    if s[i].isdigit():
+        count+=1
+print(count)
+o/p- 
+a3b28c4
+4
+
+
+//check whether string is palindrome or not :
+s=input()
+s1=''
+for i in range(len(s)-1,-1,-1):
+    s1+=s[i]
+if s==s1:
+    print('palindrome')
+else:
+    print('not a palindrome')
+o/p- 
+malayalam
+palindrome
+
+
+//count the no of vowels
+s='hello world'
+count=0
+for i in range(0,len(s)):
+    if(s[i]=='a' or s[i]=='e' or s[i]=='i' or s[i]=='o' or s[i]=='u'):
+        count+=1
+print(count)   
+                          (or)
+vowels=['a','e','i','o','u']
+s='hello world'
+count=0
+for c in s:
+  if c in vowels:
+      count+=1
+print(count)
+                          (or)
+s='hello world'
+count=0
+for i in range(0,len(s)):
+    if(s[i]=='a' or s[i]=='e' or s[i]=='i' or s[i]=='o' or s[i]=='u'):
+        count+=1
+print(count)
+o/p-3
+
+
+// membership (not in)
+data=[1,6,'apple','b','c']
+fruits=['apple','b','c','d']
+for i in data:
+    if i not in fruits:
+        print(i)
+o/p-
+1
+6
+
+
+//is
+s='hello'
+s1='hello'
+print(s is s1)
+o/p-True
+
+
+//split the string
+s='hello welcome to sridevi'
+s=s.split()
+print(s)
+ o/p :['hello', 'welcome', 'to', 'sridevi']
+
+
+//count number of words :
+s='hello welcome to hello sridevi'
+s=s.split()
+print(s.count('hello'))
+o/p-2
+
+//
+n=10
+n1=True
+print(n and n1)
+o/p-True
+
+
+//fun
+def fun(branch):
+    return "hello",branch
+print(fun('cse'))
+print(fun('it'))
+o/p-
+('hello', 'cse')
+('hello', 'it')
+
+
+//even odd
+def fun(n):
+    if n%2==0:
+        print('even')
+    else:
+        print('odd')
+fun(9) 
+o/p-odd
+
+
+//no divible by 4&6
+def fun(arr):
+    count=0
+    for i in arr:
+        if i%4==0 and i%6==0:
+            print(i,end=' ')
+            count+=1
+    return count
+arr=list(map(int,input().split()))  #input
+print('count is:',fun(arr)) 
+o/p-
+8 3 9 12 10
+12 count is: 1
+
+
+//   string reverse
+def check(s):
+    s=s.split()
+    s=list(reversed(s)) #s becomes reversed list
+    print(s)
+    for i in s:
+       rev=i[::-1]   #reverse the char
+       print(rev,end='')
+s="hello cse"
+check(s)                   
+o/p-
+['cse', 'hello']
+escolleh
+
+
+//FIBONACCI SERIES (0 1 1 2 3 5 8....)
+def func(n):
+    first=0
+    sec=1
+    print(first,sec,end=' ')
+    count=2 # because already two nos are taken
+    while count<=n:
+        third=first+sec
+        print(third,end=' ')
+        first=sec
+        sec=third
+        count+=1
+func(7)       
+o/p-
+0 1 1 2 3 5 8 13 
+
+
+//SUM OF DIGITS UNTIL IT BECOMES SINGLE DIGIT ex;178=16=7
+n=int(input())
+s=0
+while n>0:
+    k=n%10
+    s+=k
+    n=n/10
+o/p-
+236
+11
+
+#TAKE A NUMBER 12345 DIVIDE INTO HALF 123,45 REVERSE THE SECOND NUMBER =>45123
+
+
+// FUNCTION IN FUNCTION
+def check(ele):
+    return ele%2==0
+def inc(ar):
+    count=0
+    for i in ar:
+        if check(i):
+           print(i)
+           count+=1
+    return count
+ar=[5,7,9,4,2]
+print('count is',inc(ar))
+o/p-
+4 
+2
+count is 2
+                            (or)
+def check(ele):
+    ele=str(ele)
+    return ele==ele[::-1]
+def inc(ar):
+    count=0
+    for i in ar:
+        if check(i):
+            count+=1 
+    return count
+ar=[515,7,49,4004,242]
+print(inc(ar))
+o/p-4
+
+
+// NUMBER OF PALINDROMES BETWEEN 1-50
+def check(n):
+    n=str(n)
+    return len(n)>1 and n==n[::-1]
+def inc(N):
+    count=0
+    for i in range(1,N+1):
+        if check(i):
+            print(i)
+            count+=1 
+    return count
+N=50
+print(inc(N))
+o/p-
+11
+22
+33
+44
+4
+
+==================================================================================================
+DAY - 2
+
+#lists
+1.list is a collection of ordered elements
+2.list is a mutable(make some changes) data structure
+Syntax- list_name=[obj1,obj2,obj3,....objn]
+
+mobiles=['iphone','samsung','vivo']
+
+insert--adds data in b/w
+append--adds data at the last
+remove--removes any element
+pop--pops last element
+pop(index)--revomes that element
+clear--only elements in the list will be deleted but not the list
+update--list_name(index)='value'
+        eg:mobiles(1)='blackberry'
+del--deletes complete list
+
+
+//printing the elements
+for ele in mobiles:
+	print(ele)
+
+//using count
+count=1
+for ele in mobiles:
+	print(count,ele)
+	count+=1
+
+//printing only even values
+for i in range(0,len(mobiles)):
+	if i%2==0:
+		print(mobiles(i))
+
+//reversing the element only in even position
+for i in range(0,len(mobiles)):
+	if i%2==0:
+		rev=mobiles[i]
+		print(rev[::-1])
+	else:
+		print(mobiles[i])
+
+//in an array first printing from k element to last and left over elements
+arr=[1,2,3,4,5]
+k=4
+first=arr[k-1:]
+second=arr[:k-1]
+print(first+second)
+o/p:[4,5,1,2,3]
+ 
+//last k digits and remaining
+arr=[1,2,3,4,5]  
+k=3
+first=arr[len(arr)-k:]
+second=arr[:k-1]
+print(first+second)
+o/p:[3,4,5,1,2]
+
+-------------------------------------------------------------------------------------------
+#TUPLES:
+->(immutable)once data is created cannot be changed
+->we cannt insert,delete,update,etc.
+->only fetching is possible
+syntax-tuple_name=(data,--,)
+
+->if we want to make changes we need to convert to list and make changes
+
+student=(101,'umer','cse','hyd')
+student=list(student)
+student[2]='ece'
+print(student)
+-------------------------------------------------------------------------------------------
+#DICTIONARY:
+->represented with curly braces
+->key value pairs
+->mutable
+->dict_name.keys()--prints all keys
+
+//inserting an element(no insert,append keyword is used)
+menu={
+    'chckn_bryn':555,
+    'butter_chckn':456,
+    'tandoori_chckn':673,
+    'juicy_mandi':700,
+    }
+menu['palak']=120
+print(menu)
+o/p-o/p-{'chckn_bryn': 555, 'butter_chckn': 456, 'tandoori_chckn': 673, 'juicy_mandi': 700, 'palak': 120}
+
+//printing dictionary
+menu={
+    'chckn_bryn':555,
+    'butter_chckn':456,
+    'tandoori_chckn':673,
+    'juicy_mandi':700,
+    }
+for k,v in menu.items():
+	print(k,'->',v)
+o/p- 
+chckn_bryn -> 555
+butter_chckn -> 456
+tandoori_chckn -> 673
+juicy_mandi -> 700
+
+
+//count the frequency of each number
+arr=[1,3,6,2,5,3,7,5,1]
+d={}
+for key in arr:
+    if key not in d:
+        d[key]=1
+    else:
+        d[key]+=1
+print(d)
+o/p-{1: 2, 3: 2, 6: 1, 2: 1, 5: 2, 7: 1}
+
+
+//printing unique values
+arr=[1,3,6,2,5,3,7,5,1]
+count=0
+d={}
+for key in arr:
+    if key not in d:
+        d[key]=1
+    else:
+        d[key]+=1
+for num,count in d.items():
+    if count==1:
+        print(num)
+o/p-
+6
+2
+7
+   
+  
+//printing majority votes
+
+cong={
+    7:5,18:22,32:8,71:5,66:6}
+bjp={
+    7:15,18:20,32:4,71:9,66:2}
+sum1=sum2=0
+for k,v in cong.items():
+    if k>=18:
+        sum1+=v
+for k,v in bjp.items():
+    if k>=18:
+        sum2+=v
+if sum1>sum2:
+    print('majority cong by',sum1-sum2,'votes')
+else:
+    print('majority bjp by',sum2-sum1,'votes')
+                        
+                                (or)
+
+cong={
+    7:5,18:22,32:8,71:5,66:6}
+bjp={
+    7:15,18:20,32:4,71:9,66:2}
+sum1=sum2=0
+for k,v in cong.items():
+    if k>=18:
+        sum1+=v
+for k,v in bjp.items():
+    if k>=18:
+        sum2+=v
+diff=abs(sum1-sum2)
+if sum1>sum2:
+    print('majority cong by',diff,'votes')
+else:
+    print('majority bjp by',diff,'votes')
+        
+        
+o/p-majority cong by 6 votes  
+
+-------------------------------------------------------------------------------------------
+#RECURSION
+
+//factorial without recursion
+n=5
+fact=1
+for i in range(1,n+1):
+    fact=fact*i
+print(fact)
+ 
+
+//using recursion
+def fact(n):
+    if n==0 or n==1:
+        return 1
+    else:
+        return n*fact(n-1)
+n=int(input())
+print(fact(n))
+
+//find nth term in fibinocci series
+def fib(n):
+    if n==1 or n==0:
+        return n
+    else:
+        return fib(n-1)+fib(n-2)
+n=int(input())
+print(fib(n-1))
+
+o/p-
+8
+13
+-------------------------------------------------------------------------------------------
+#EXCEPTION HANDLING
+the keywords in python are try,except,else,finally
+
+//try block
+try:
+    a=10
+    b=0
+    c=a/b
+    print(c)
+except Exception:
+    print('Divide by zero is not possible')
+o/p-Divide by zero is not possible
+
+//NAme error
+try:
+    a=5
+    print(b)
+except NameError:
+    print('variable b is not assigned')
+o/p-variable b is not assigned
+
+//index error
+try:
+    arr=[5,2,7,12,36]
+    print(arr[8])
+except IndexError:
+    print('cannot access index value')
+o/p-cannot access index value
+
+//else- in try--if no exception occured then the else block executes(same as if else)
+try:
+    arr=[5,2,7,12,36]
+    print(arr[1])
+except IndexError:
+    print('cannot access index value')
+else:
+    print('no exception occured')
+o/p-no exception occured
+//finally--if exception occured or not the finally block executes(database closing code in real world)
+try:
+    arr=[5,2,7,12,36]
+    print(arr[41])
+except IndexError:
+    print('cannot access index value')
+else:
+    print('no exception occured')
+finally:
+    print('finally wed is a last day of training')
+
+o/p-cannot access index value
+    finally wed is a last day of training
+
+
+
+//make numbers upto 500 using digits 2,4,8
+2 conditions-equal no of 2's 4's and 8's
+and atlest one 2
+
+def check(num):
+    num=str(num)
+    twos=num.count('2')
+    fours=num.count('4')
+    eights=num.count('8')
+    return twos==fours==eights and twos>0
+def increment(n):
+    count=0
+    for num in range(1,n+1):
+        if check(num):
+            print(num)
+            count+=1
+    return count
+n=int(input())
+print(increment(n))
+o/p-500
+248
+284
+428
+482
+4
+=================================================================================================
+DAY - 3
+
+OOPS:
+
+#class--
+blue print of an object
+class is a logical entity
+class contain functions,constructor,data
+#Objects--
+object is a real world entity
+obj is instance(part) of a class
+objects contain properties,behaviours,identity
+#Constructor--
+constructor is a special method which is used to invoke the instance variable
+constructor doed not return a value
+while creating an obj constructor will be called implicitly
+there are 3 types of constructor
+1.default constructor-
+2.parametarized constructor-which contais arguments
+self->self referencing variable(same as this in java)
+3.non-parameterized-
+for creating constructor we use __init__(self)
+
+//display student details
+class Student:
+    def __init__(self,name,roll,branch,address,email):#parameterized constructor
+        self.name=name
+        self.roll=roll
+        self.branch=branch
+        self.address=address
+        self.email=email
+    def display(self):
+        print('Name is:',self.name)
+        print('Roll No is:',self.roll)
+        print('Branch is:',self.branch)
+        print('Address is:',self.address)
+        print('Email is:',self.email)
+s1=Student('Rani',101,'cse','hyd','rani@gmail.com')
+s1.display()
+o/p-
+Name is: Rani            (8 bytes)
+Roll No is: 101          (4 bytes)
+Branch is: cse           (8 bytes)
+Address is: hyd          (8 bytes)
+Email is: rani@gmail.com (8 bytes)   total--36
+
+--static--
+static is used for memory management
+instead of creating individually a common data create a static data and pass the copy to all the objects
+
+//
+class Student:
+    branch='cse' #static data
+    def __init__(self,name,roll,address,email):
+        self.name=name
+        self.roll=roll
+        self.address=address
+        self.email=email
+    def display(self):
+        print('Name is:',self.name)
+        print('Roll No is:',self.roll)
+        print('Branch is:',Student.branch)
+        print('Address is:',self.address)
+        print('Email is:',self.email)
+        print()
+s1=Student('Rani',101,'hyd','rani@gmail.com')
+s2=Student('Raju',102,'hyd','raju@email.com')
+s1.display()
+s2.display()
+o/p-
+Name is: Rani
+Roll No is: 101
+Branch is: cse
+Address is: hyd
+Email is: rani@gmail.com
+
+Name is: Raju
+Roll No is: 102
+Branch is: cse
+Address is: hyd
+Email is: raju@email.com
+
+
+//without using display fun i.e; using f-strings
+class Student:
+    branch='cse' #static data
+    def __init__(self,name,roll,address,email):
+        self.name=name
+        self.roll=roll
+        self.address=address
+        self.email=email
+    def __str__(self):
+        return f'{self.name} {self.roll} {Student.branch} {self.address} {self.email}'
+s1=Student('Rani',101,'hyd','rani@gmail.com')
+s2=Student('Raju',102,'hyd','raju@email.com')
+print(s1)
+print(s2)
+o/p-
+Rani 101 cse hyd rani@gmail.com
+Raju 102 cse hyd raju@email.com
+----------------------------------------------------------------------------------------
+#Inheritance--
+1.single inheritance-one parent is inherited to one child
+//
+class JNTU:
+    def shedule_academics():
+        print('sheduling academics')
+    def results():
+        print('go to www.jntuhresults.com')
+class SriDevi(JNTU):
+    def fees():
+        print('3rd year fees is 85k')
+sobj=SriDevi
+sobj.shedule_academics()
+sobj.results()
+sobj.fees()
+o/p-
+sheduling academics
+go to www.jntuhresults.com
+3rd year fees is 85k
+2.multiple inheritance-one child is inherited from two parents
+3.multilevel inheritance-
+4.hierarical inheritance-
+5.hybrid inheritance-combination of multiple and single inheritance
+-------------------------------------------------------------------------------------------
+#Abstraction--hiding details
+abstract method-not writing the body inside the method
+we dont have abstract keyword in python
+in order to make a class anstract we import abc package and extract ABC class
+in this way our class becomes abstract
+abc-->package/library for abstract
+ABc-->class to extract
+
+
+//
+import abc
+print(dir(abc))
+o/p-['ABC', 'ABCMeta', '__builtins__', '__doc__', '__file__', '__loader__', '__name__', '__package__', '__spec__', '_abc_init', '_abc_instancecheck', '_abc_register', '_abc_subclasscheck', '_get_dump', '_reset_caches', '_reset_registry', 'abstractclassmethod', 'abstractmethod', 'abstractproperty', 'abstractstaticmethod', 'get_cache_token', 'update_abstractmethods']
+these are the methods and classes in abc
+
+
+//program for abstraction
+from abc import ABC
+class Mobile(ABC):
+    def price():
+        pass
+    def call():
+        print('caller id is active')
+    def text():
+        print('texting')
+class iphone(Mobile):
+    def price():
+        print('price of iphone is 1 lakh')
+class vivo(Mobile):
+    def price():
+        print('price of vivo is 20k')
+iobj=iphone
+iobj.call()
+iobj.text()
+iobj.price()
+o/p-
+caller id is active
+texting
+price of iphone is 1 lakh
+
+
+non abstract/concrete method-writing the body inside method
+------------------------------------------------------------------------------------------
+#Encapsulation-binding data and methods into the single component is called encapsulation
+class is the best example of encapsulate
+advantages:
+code integration
+security
+Access modifiers:
+public-
+private-can be accessed witin the same class only
+for creating private variable we use 2 underscore before name i.e; __name
+proctected-can be accessed outside the class too but within the package
+for creating protected method we use underscore before method name(def _methodname)
+
+//program
+class employee:
+    def __init__(self,name,role,salary):
+        self.name=name
+        self.role=role
+        self.__salary=salary  #private data
+    def get_salary(self):     #public method but private data
+        print(self.__salary)
+    def empdisplay(self):     #public method
+        print(self.name,self.role)
+        
+class company(employee):
+    def __init__(self,cname,loc):
+        self.cname=cname
+        self.loc=loc
+    def comdisplay(self):
+        print(self.cname,self.loc)
+    def _hiring(self):
+        print('hiring for the manager role')
+        
+cobj=company('wipro','gachibouli')
+eobj=employee('umer','dev',85000)
+eobj.empdisplay()
+cobj._hiring()
+o/p-
+umer dev
+hiring for the manager role
+-----------------------------------------------------------------------------------------
+#polymorphism-one person diff forms
+
+//program
+class Person:
+    def __init__(self,name,age):      #constructor
+        self.name=name
+        self.age=age
+    def __str__(self):                #function
+        return f'{self.name},{self.age}'
+
+class Student(Person):
+    def __init__(self,name,age,roll,branch):
+        super().__init__(name,age)
+        self.roll=roll
+        self.branch=branch
+    def __str__(self):
+        perdetails=super().__str__()
+        return f'{perdetails},{self.roll},{self.branch}'
+
+class AnnualDay(Student):
+    def __init__(self,name,age,roll,branch,program):
+        super().__init__(name,age,roll,branch)
+        self.program=program
+    def __str__(self):
+        studetails=super().__str__()
+        return f'{studetails},{self.program}'
+
+aobj=AnnualDay('rani',12,101,'cse','dance')
+print(aobj)
+o/p-rani,12,101,cse,dance
+
+
+
+//alice=[12,3,2],bob=[10,3,4]  compare the marks and whose marks are greater give them one point if same leave it and finally return both the points
+
+a=[12,3,2]
+b=[10,3,4]
+acnt=bcnt=0
+for i in range(3):
+    if a[i]>b[i]:
+        acnt+=1
+    elif b[i]>a[i]:
+        bcnt+=1
+    else:
+        continue
+print(acnt,bcnt)
+o/p-1 1
+
+
+//password validation
+it should satisfy the following conditions
+len >8
+1 cap
+1 small
+1 digit
+1 special char
+
+s=input()
+ucount=lcount=dcount=scount=0
+for c in s:
+    if c.isupper():
+        ucount+=1
+    elif c.islower():
+        lcount+=1
+    elif c.isdigit():
+        dcount+=1
+    else:
+        scount+=1
+
+if len(s)>8 and lcount>0 and ucount>0 and dcount>0 and scount>0:
+    print('valid')
+else:
+    print('invalid')
+o/p-Sridevi@123
+valid
+
+===========================================================================================================
+DAY - 4
+
+//apples and oranges(counting no.of apples and oranges fallen from a tree in sams house)
+s=7
+t=11
+a=3
+b=15
+apples=[6,5,-4]
+oranges=[9,8,-4]
+acnt=ocnt=0
+for i in apples:
+    if s <= a+i <= t:
+        acnt+=1
+for i in oranges:
+    if s <= b+i <= t:
+        ocnt+=1
+print('no of apples:',acnt,'no of oranges:',ocnt)
+o/p- no of apples: 2 no of oranges: 1
+
+                     (or)
+
+s=7
+t=11
+a=3
+b=15
+apples=[6,5,-4]
+oranges=[9,8,-4]
+acnt=ocnt=0
+for i in apples:
+    if a+i in range(s,t+1):
+        acnt+=1
+for i in oranges:
+    if b+i in range(s,t+1):
+        ocnt+=1
+print(acnt,ocnt)
+o/p-2 1
+
+
+//first print digits and then characters
+s='a1b2c3d492nm45'
+char=''
+for i in s:
+    if i.isdigit():
+        print(i,end='')
+    else:
+        char+=i
+print(char)
+             (or)
+s='a1b2c3d492nm45'
+s1=''
+s2=''
+for i in s:
+    if i.isdigit():
+        s1+=i
+    else:
+        s2+=i
+print(s1+s2)
+o/p-12349245abcdnm
+
+
+//printing pattern
+#using two for loops
+for i in range(5):
+    for j in range(i+1):
+        print('*',end='')
+    print()
+               (or)
+#using one for loop
+for i in range(1,5+1):
+    print('*'*i)
+o/p-
+*
+**
+***
+****
+*****
+
+
+//printing left and right diagonals
+#left diagonal-i==j
+#right diagonal=i+j==n-1
+n=3
+for i in range(n):
+    for j in range(n):
+        if i==j or i+j==n-1:
+            print('*',end='')
+        else:
+            print(' ',end='')
+    print()
+o/p:
+* *
+ * 
+* *
+
+
+//pritning square
+n=4
+for i in range(1,n+1):
+    if i==1 or i==n:
+        print('*'*n)
+    else:
+        print('*'+' '*(n-2)+'*')
+o/p-
+****
+*  *
+*  *
+****
+
+
+//if A-&,B-|,C-^
+s='1A1B1C0C1B0A1'
+res=int(s[0])
+for c in range(1,len(s),2):
+    if s[c]=='A':
+        res=res&int(s[c+1])
+    elif s[c]=='B':
+        res=res|int(s[c+1])
+    elif s[c]=='C':
+        res=res^int(s[c+1])
+print(res)
+o/p-0
+
+
+//count how many good numbers are there
+import math
+arr=[35,9,1,65,126,133]
+count=0
+res=0
+for i in arr:
+    low=1
+    high=math.floor(math.cbrt(i)) or math.ceil(i**0.3) #for cube routing and flooring the value
+    while low<high:
+        res=(low**3)+(high**3)
+        if res==i:
+            print(i)
+            count+=1
+        low+=1
+print('the count is:',count)
+o/p-
+35
+9
+65
+126
+133
+the count is: 5
+
+
+//print alphabetical order number
+ord('char')-gives ascii value
+chr(number-gives character
+
+s='apple'
+for c in s:
+    print(c,'->',ord(c)-96)
+o/p-
+a -> 1
+p -> 16
+p -> 16
+l -> 12
+e -> 5
+
+
+//count halindrome
+->first check palindrome or not 
+->if not divide the string in 2 equal halves and check that are palindrome or not -atlest one part should be palindrome 
+s=['aba','sasdad','aaaccc','tapdog','emepe']
+
+s=['aba','sasdad','aaaccc','tapdog','emepe']
+count=0
+for i in s:
+    if i==i[::-1]:
+        count+=1
+        print(i)
+    else:
+        m=len(i)//2
+        if len(i)%2==0:
+            first=i[:m]
+            second=i[m:]
+            if first==first[::-1] or second==second[::-1]:
+                count+=1
+                print(i)
+        else:
+            first=i[:m+1]
+            second=i[m+1:]
+            if first==first[::-1] or second==second[::-1]:
+                count+=1
+                print(i)
+print(count)
+
+o/p-
+aba
+sasdad
+aaaccc
+emepe
+4
+
+
+=========================================================================================================== 
+DAY - 5
+
+// n1=7823,n2=5489,n3=1384
+find sum of min digit and sum of max digit and find the difference b/w them
+    
+n1=6521
+n2=9078
+n3=2486
+
+def check(n):
+    s=str(n)
+    min=int(s[0])
+    max=int(s[0])
+    minsum=maxsum=0
+    for c in s:
+        if int(c)<min:
+            min=int(c)
+        if int(c)>max:
+            max=int(c)
+    minsum+=min
+    maxsum+=max
+    return abs(minsum-maxsum)
+
+diff=check(n1)
+diff+=check(n2)
+diff+=check(n3)
+print(diff)
+
+                 (or)
+n1=6521
+n2=9078
+n3=2486
+max_sum=min_sum=0
+def min_check(n):
+    s=str(n)
+    min=int(s[0])
+    for i in s:
+        if int(i)<min:
+            min=int(i)
+    return min
+def max_check(n):
+    s=str(n)
+    max=int(s[0])
+    for i in s:
+        if int(i)>max:
+            max=int(i)
+    return max
+min_sum=min_check(n1)+min_check(n2)+min_check(n3)
+max_sum=max_check(n1)+max_check(n2)+max_check(n3)
+diff=abs(min_sum-max_sum)
+print(diff)
+o/p-20
+
+
+//convert to binary
+n=101011
+def binary(n):
+    j=bin=0
+    s=str(n)
+    for i in s[::-1]:
+        bin+=int(i)*2**j
+        j+=1
+    print(bin)
+
+binary(n)
+           (or)
+n=101011
+sum=0
+i=0
+while n>0:
+    rem=n%10
+    pro=rem*pow(2,i)
+    sum+=pro
+    i+=1
+    n=n//10
+print(sum)
+
+o/p-43
+
+
+--------------------------------------------------------------------------------------
+#deque(double ended queue)--we can perform operation from both the end
+
+from collections import deque
+numbers=[1,2,3,4]
+numbers=deque(numbers)
+numbers.popleft()
+print(numbers)
+o/p-deque([2, 3, 4])
+--------------------------------------------------------------------------------------
+#Anagram-len should be same and all the chars in s1 should be present in s2
+
+s1='tab'
+s2='bat'
+
+res1=sorted(s1)
+res2=sorted(s2)
+if len(s1)==len(s2) and res1==res2:
+    print('Anagram')
+else:
+    print('Not an Anagram')
+    
+o/p-Anagram
+
+
+//guessing game
+import random
+ran=random.randint(1,10)
+chances=3
+while chances>=1:
+    guess=int(input('enter the number:'))
+    if guess==ran:
+        print('congrats')
+        break
+    else:
+        chances-=1
+        continue
+if chances<1:
+    print('failed try next time')
+o/p-
+enter the number:3
+enter the number:6
+enter the number:8
+failed try next time
+                        (or)
+import random
+ran=random.randint(1,100)
+while True:
+    guess=int(input('enter the number:'))
+    if guess==ran:
+        print('congrats')
+        break
+    else:
+        if guess<ran:
+            print('guess higher')
+        else:
+            print('guess lower')
+        continue
+o/p-
+enter the number:30
+guess lower
+enter the number:25
+guess lower
+enter the number:20
+guess lower
+enter the number:10
+congrats
+
+
+//count the no of carry
+n1=288
+n2=594
+count=0
+carry=0
+while n1>0 and n2>0:
+    rem1=n1%10
+    rem2=n2%10
+    sum=rem1+rem2+carry
+    if sum>9:
+       count+=1
+       carry=1
+    else:
+        carry=0
+    n1=n1//10
+    n2=n2//10
+print(count)
+o/p-2
+
+
+//convert time into 12 hr format
+time='20:34:55'
+time=time.split(':')
+hrs=time[0]
+min=time[1]
+sec=time[2]
+
+if int(hrs)>12:
+    hrs=int(hrs)-12
+if int(min)>59:
+    hrs=int(hrs)+1
+    min=int(min)-60
+if int(sec)>59:
+    min=int(min)+1
+    sec=int(sec)-60
+print(str(hrs)+':'+str(min)+':'+str(sec))
+
+o/p-        
+8:34:55
+
+--------------------------------------------------------------------------------------
+#stack:
+
+class stackEx:
+    def __init__(self):
+        self.stack=[]
+    def push(self,data):
+        self.stack.append(data)
+    def is_empty(self):
+        return self.stack==[]
+    def pop(self):
+        if not self.is_empty():
+            self.stack.pop()
+        else:
+            print('stack underflow')
+    def peek(self):
+        if not self.is_empty():
+            print('peek ele:',self.stack[-1])
+        else:
+            print('stack is empty')
+    def display(self):
+        if not self.is_empty():
+            for top in range(len(self.stack)-1,-1,-1):
+                print(self.stack[top])
+        else:
+            print('stack is empty')
+obj=stackEx()
+obj.push(10)
+obj.push(20)
+obj.push('umer')
+obj.push(30)
+obj.peek()
+obj.pop()
+obj.display()            
+o/p-
+peek ele: 30
+umer
+20
+10
+
+
+//check whether string is balance or not
+def check(s):
+    stack=[]
+    openings=['(','[','{']
+    brackets={
+        '(':')',
+        '[':']',
+        '{':'}'
+        }
+    for i in s:
+        if i in openings:
+            stack.append(i)
+        else:
+            if stack:
+                top=stack.pop()
+                if brackets[top]!=i:
+                    return 'No'
+            else:
+                return 'No'
+    if stack:
+        return 'No'
+    else:
+        return 'Yes'
+s='{([])}'
+print(check(s))
+o/p-Yes
+
+
+============================================================================================================
+DAY - 6
+
+//remove dublicate words from string
+s='hello world hello world good morning good afternoon'
+s=s.split()
+s1=''
+for i in s:
+    if i not in s1:
+        s1+=i+' '
+print(s1)
+                   (or)
+s='hello world hello world good morning good afternoon'
+s=s.split()
+d={}
+for i in s:
+    if i not in d:
+        d[i]=1
+    else:
+        d[i]+=1
+for k,v in d.items():
+    if v>=1:
+        print(k,end=' ') 
+o/p-
+hello world good morning afternoon 
+
+
+//print next char
+s='abcdz'
+for c in s:
+    if 97<= ord(c) < 122:
+        print(chr(ord(c)+1),end='')
+    else:
+        print(chr(ord(c)-25))
+                   (or)
+ s='abcdz'
+s1=''
+for c in s:
+    if ord(c)>=97 and ord(c)<122:
+        s1+=chr(ord(c)+1)
+    else:
+        s1+=chr(ord(c)-25)
+print(s1)
+o/p-bcdea
+
+
+//first print zeros and then ones
+arr=[1,1,0,1,1,0,0]
+l1=[]
+l2=[]
+for i in arr:
+    if i==0:
+       l1.append(i)
+    else:
+        l2.append(i)
+l1.extend(l2)               (or)          print(l1+l2)
+print(l1)
+o/p-[0, 0, 0, 1, 1, 1, 1]
+
+
+//double pointer technique
+arr=[1,2,3,4,5,6]
+k=6
+count=0
+f=0
+l=len(arr)-1
+while f<l:
+    if arr[f]+arr[l]==k:
+        count+=1
+        f+=1
+        l-=1
+    elif arr[f]+arr[l]<k:
+        f+=1
+    else:
+        l-=1
+print(count)
+o/p-2
+
+
+//birthday cake candle-count the max age of candles
+candles=[3,7,1,5,4,7]
+print(candles.count(max(candles)))
+
+                         (or)
+candles=[3,7,1,5,4,7]
+max=candles[0]
+count=0
+for i in candles:
+    if i>max:
+        max=i
+for i in candles:
+    if max==i:
+        count+=1
+print(count)
+o/p-2
+
+-------------------------------------------------------------------------------------------
+#linked list
+//single linked list
+class node:
+  def __init__(self,data):
+      self.data=data
+      self.next=None
+
+first=node(10)
+second=node(20)
+third=node(30)
+first.next=second
+second.next=third
+third.next=None
+head=first
+while head!=None:
+    print(head.data)
+    head=head.next
+o/p-
+10
+20
+30
+
+
+//diff b/w min sum and max sum
+arr=[4,2,6,34,21,9,4]
+arr.sort()
+min_sum=sum(arr)-max(arr)
+max_sum=sum(arr)-min(arr)
+print(abs(min_sum-max_sum))
+                       (or)
+arr=[4,2,6,34,21,9,4]
+arr.sort()
+min_sum=sum(arr[:len(arr)-1])
+max_sum=sum(arr[1:])
+print(abs(min_sum-max_sum))
+
+o/p-32
+
+
+
